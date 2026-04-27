@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Mom</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  width: 400%;
+  height: 100vh;
+  transition: transform 1s ease-in-out;
+}
+
+.slide {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Fancy backgrounds */
+.slide:nth-child(1) { background: linear-gradient(135deg, #ffe4ec, #fff0f5); }
+.slide:nth-child(2) { background: linear-gradient(135deg, #fdf6f0, #ffe4ec); }
+.slide:nth-child(3) { background: linear-gradient(135deg, #fff0f5, #f8d7e3); }
+.slide:nth-child(4) { background: linear-gradient(135deg, #ffe4ec, #fdf6f0); }
+
+h1, h2 {
+  font-family: 'Great Vibes', cursive;
+  color: #c94f7c;
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; }
+
+p {
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.gallery {
+  display: flex;
+  gap: 10px;
+}
+
+.gallery img {
+  width: 150px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transition: transform 0.4s;
+}
+
+.gallery img:hover {
+  transform: scale(1.1);
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  background: #c94f7c;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+#surprise {
+  display: none;
+  margin-top: 15px;
+  font-size: 1.2rem;
+}
+
+.nav {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.nav button {
+  margin: 0 5px;
+}
+</style>
+</head>
+<body>
+
+<div class="slider" id="slider">
+
+  <!-- Slide 1 -->
+  <div class="slide">
+    <h1>Happy Birthday Mom ❤️</h1>
+    <p>To the woman whose love paints my world in the softest shades of happiness ✨</p>
+  </div>
+
+  <!-- Slide 2 -->
+  <div class="slide">
+    <h2>My Dearest Mother</h2>
+    <p>
+      Your love is like poetry written across my life — gentle, timeless, and endlessly beautiful.
+      In your embrace, I have found my greatest strength, my deepest comfort, and my truest home.
+      Every smile of yours lights up my darkest days, and every sacrifice you made lives quietly in my success.
+      You are not just my mother… you are my heart.
+    </p>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="slide">
+    <h2>Our Cherished Memories</h2>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/150">
+      <img src="https://via.placeholder.com/150">
+      <img src="https://via.placeholder.com/150">
+    </div>
+    <p>Moments with you are the treasures I will carry forever 💖</p>
+  </div>
+
+  <!-- Slide 4 -->
+  <div class="slide">
+    <h2>Why I Love You</h2>
+    <p>
+      Because your love knows no limits…<br>
+      Because your kindness shapes my soul…<br>
+      Because your presence turns ordinary days into magic…
+    </p>
+    <button onclick="showSurprise()">Click for a Surprise 🎁</button>
+    <div id="surprise">You are my forever, my always, my home. I love you endlessly ❤️</div>
+  </div>
+
+</div>
+
+<div class="nav">
+  <button onclick="moveSlide(0)">1</button>
+  <button onclick="moveSlide(1)">2</button>
+  <button onclick="moveSlide(2)">3</button>
+  <button onclick="moveSlide(3)">4</button>
+</div>
+
+<audio id="bg-music" autoplay loop muted>
+  <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+let index = 0;
+function moveSlide(i) {
+  index = i;
+  document.getElementById('slider').style.transform = `translateX(-${i * 100}vw)`;
+}
+
+function showSurprise() {
+  document.getElementById('surprise').style.display = 'block';
+}
+
+// enable sound after click
+document.addEventListener('click', () => {
+  const music = document.getElementById('bg-music');
+  music.muted = false;
+  music.play();
+}, { once: true });
+</script>
+
+</body>
+</html>
